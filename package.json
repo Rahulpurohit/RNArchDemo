@@ -1,0 +1,50 @@
+{
+	"name": "CodePushExample",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"test": "jest",
+		"bundle-ios": "node node_modules/react-native/local-cli/cli.js bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios' --assets-dest='./ios'",
+		"bundle-android": "node node_modules/react-native/local-cli/cli.js bundle --entry-file='index.js' --bundle-output='./android/app/src/main/assets/index.android.bundle' --dev=false --platform='android' --assets-dest='./android/app/src/main/res'",
+		"codepush-ios": "code-push release-react <path of project>-ios ios -d Production -m true -t \"1.6\"",
+		"codepush-ios-staging": "code-push release-react <path of project>-ios ios -d Staging -m true -t \"1.6\"",
+		"codepush-android": "code-push release-react <path of project>-android android -d Production -m true -t \"1.2\"",
+		"codepush-android-staging": "code-push release-react <path of project>-android android -d Staging -m true -t \"1.1\"",
+		"codepush-product": "npm run codepush-ios && npm run codepush-android",
+		"codepush-staging": "npm run codepush-ios-staging && npm run codepush-android-staging"
+	},
+	"dependencies": {
+		"appcenter": "1.12.2",
+		"appcenter-analytics": "1.12.2",
+		"appcenter-crashes": "1.12.2",
+		"axios": "^0.18.0",
+		"lodash": "^4.17.11",
+		"native-base": "^2.12.1",
+		"react": "16.6.3",
+		"react-native": "0.58.5",
+		"react-native-code-push": "^5.5.2",
+		"react-native-device-info": "^0.26.4",
+		"react-native-gesture-handler": "^1.1.0",
+		"react-navigation": "^3.3.2",
+		"react-navigation-redux-helpers": "^3.0.0",
+		"react-redux": "^6.0.1",
+		"redux": "^4.0.1",
+		"redux-logger": "^3.0.6",
+		"redux-persist": "^5.10.0",
+		"redux-persist-transform-filter": "0.0.18",
+		"redux-saga": "1.0.2",
+		"remote-redux-devtools-sp": "^0.5.13",
+		"rn-viewpager": "1.2.9",
+		"validator": "^10.11.0"
+	},
+	"devDependencies": {
+		"babel-core": "^7.0.0-bridge.0",
+		"babel-jest": "24.1.0",
+		"jest": "24.1.0",
+		"metro-react-native-babel-preset": "0.52.0",
+		"react-test-renderer": "16.8.4",
+		"remote-redux-devtools": "^0.5.16",
+		"reactotron-react-native": " 3.2.1"
+	}
+}
